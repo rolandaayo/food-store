@@ -7,26 +7,105 @@
   --primary-dark: #E63939;
 }
 
-body {
-  @apply bg-gray-50;
+@layer base {
+  body {
+    @apply bg-gray-50;
+  }
 }
 
-.hero-gradient {
-  @apply bg-gradient-to-r from-black/70 to-black/50;
+@layer components {
+  .hero-gradient {
+    @apply bg-gradient-to-r from-black/70 to-black/50;
+  }
+
+  .menu-item-hover {
+    @apply transition-all duration-300 hover:shadow-xl;
+  }
+
+  .button-primary {
+    @apply bg-[--primary] hover:bg-[--primary-dark] text-white font-semibold 
+           px-6 py-3 rounded-full transition-all duration-300 
+           hover:shadow-lg transform hover:scale-105;
+  }
+
+  .cart-badge {
+    @apply absolute -top-2 -right-2 bg-[--primary] text-white 
+           rounded-full w-6 h-6 text-xs flex items-center 
+           justify-center font-bold animate-bounce;
+  }
+
+  .footer-link {
+    @apply text-gray-400 hover:text-white transition-colors duration-300;
+  }
+
+  .footer-heading {
+    @apply text-lg font-semibold text-white mb-4;
+  }
+
+  .footer-section {
+    @apply space-y-4;
+  }
+
+  .footer-input {
+    @apply w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 
+      text-white placeholder-gray-400 focus:outline-none focus:ring-2 
+      focus:ring-[--primary] focus:border-transparent;
+  }
+
+  .footer-button {
+    @apply w-full px-4 py-2 bg-[--primary] hover:bg-[--primary-dark] 
+      text-white rounded-lg transition-colors duration-300;
+  }
 }
 
-.menu-item-hover {
-  @apply transition-all duration-300 hover:shadow-xl;
+@layer utilities {
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
 }
 
-.button-primary {
-  @apply bg-[--primary] hover:bg-[--primary-dark] text-white font-semibold 
-         px-6 py-3 rounded-full transition-all duration-300 
-         hover:shadow-lg transform hover:scale-105;
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.cart-badge {
-  @apply absolute -top-2 -right-2 bg-[--primary] text-white 
-         rounded-full w-6 h-6 text-xs flex items-center 
-         justify-center font-bold animate-bounce;
-} 
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Mobile menu */
+.body-scroll-lock {
+  overflow: hidden;
+}
+
+/* Image loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
