@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #FF4B4B;
+  --primary-dark: #E63939;
+}
+
+body {
+  @apply bg-gray-50;
+}
+
+.hero-gradient {
+  @apply bg-gradient-to-r from-black/70 to-black/50;
+}
+
+.menu-item-hover {
+  @apply transition-all duration-300 hover:shadow-xl;
+}
+
+.button-primary {
+  @apply bg-[--primary] hover:bg-[--primary-dark] text-white font-semibold 
+         px-6 py-3 rounded-full transition-all duration-300 
+         hover:shadow-lg transform hover:scale-105;
+}
+
+.cart-badge {
+  @apply absolute -top-2 -right-2 bg-[--primary] text-white 
+         rounded-full w-6 h-6 text-xs flex items-center 
+         justify-center font-bold animate-bounce;
+} 
