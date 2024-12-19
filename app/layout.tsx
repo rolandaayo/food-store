@@ -1,8 +1,8 @@
 import './globals.css'
-import { CartProvider } from '@/context/CartContext'
-import { ToastProvider } from '@/context/ToastContext'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import { CartProvider } from '../src/context/CartContext'
+import { ToastProvider } from '../src/context/ToastContext'
+import Navbar from '../src/components/Navbar'
+import Footer from '../src/components/Footer'
 
 export const metadata = {
   title: 'Food Store',
