@@ -3,7 +3,7 @@
 
   This is a fully responsive and functional ecommerce website, Responsive for all devices. <br/> Built using Next.js and TailwindCSS.
 
-  <a href="https://ecommerce-w3b.vercel.app/"><strong>➥ Live Demo</strong></a>
+  <a href="/"><strong>➥ Live Demo Not Available For Now</strong></a>
 
 </div>
 
