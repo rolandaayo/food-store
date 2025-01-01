@@ -101,8 +101,8 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 
-      ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}
+    <nav className={`fixed w-full top-0 z-50 transition-all duration-500 backdrop-blur-sm
+      ${isScrolled ? 'bg-white/90 shadow-lg' : 'bg-transparent'}
       ${isScrolled ? 'py-2' : 'py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -110,7 +110,8 @@ export default function Navbar() {
           <div className="flex items-center">
             <button 
               onClick={() => scrollToSection('/')}
-              className={`text-2xl font-bold ${isScrolled ? 'text-[--primary]' : 'text-white'}`}
+              className={`text-2xl font-bold tracking-tight hover:scale-105 transition-transform
+                ${isScrolled ? 'text-[--primary]' : 'text-white'}`}
             >
               FoodOrder
             </button>
@@ -122,7 +123,7 @@ export default function Navbar() {
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className={`font-medium transition-colors duration-200
+                className={`font-medium transition-all duration-300 hover:scale-105
                   ${isScrolled ? 'text-gray-600 hover:text-[--primary]' : 'text-white hover:text-gray-200'}`}
               >
                 {link.name}
@@ -135,17 +136,20 @@ export default function Navbar() {
             onSubmit={handleSearch}
             className="hidden md:flex items-center flex-1 max-w-xs mx-8"
           >
-            <div className="relative w-full">
+            <div className="relative w-full group">
               <input
                 ref={searchInputRef}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for food..."
-                className="w-full px-4 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[--primary] text-gray-800"
+                className="w-full px-4 py-2 rounded-full bg-gray-100/80 focus:outline-none focus:ring-2 
+                  focus:ring-[--primary] text-gray-800 transition-all duration-300 
+                  hover:bg-gray-100 placeholder-gray-400"
               />
-              <button type="submit">
-                <FaSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[--primary]" />
+              <button type="submit" className="absolute right-4 top-1/2 transform -translate-y-1/2 
+                transition-colors duration-300 hover:scale-110">
+                <FaSearch className="text-gray-400 hover:text-[--primary]" />
               </button>
             </div>
           </form>
@@ -155,7 +159,7 @@ export default function Navbar() {
             {/* User Profile */}
             <button 
               onClick={handleUserClick}
-              className={`p-2 rounded-full transition-colors duration-200
+              className={`p-2 rounded-full transition-all duration-300 hover:scale-110
                 ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/10'}`}
             >
               <FaUser className={`text-xl ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
@@ -165,12 +169,14 @@ export default function Navbar() {
             <div className="cart-container relative">
               <button
                 onClick={handleCartToggle}
-                className={`relative p-2 rounded-full transition-colors duration-200
+                className={`relative p-2 rounded-full transition-all duration-300 hover:scale-110
                   ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/10'}`}
               >
                 <FaShoppingCart className={`text-xl ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
                 {totalItems > 0 && (
-                  <span className="cart-badge">
+                  <span className="absolute -top-2 -right-2 bg-[--primary] text-white text-xs 
+                    font-bold rounded-full h-5 w-5 flex items-center justify-center 
+                    animate-pulse">
                     {totalItems}
                   </span>
                 )}
@@ -181,7 +187,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`md:hidden p-2 rounded-full transition-colors duration-200
+              className={`md:hidden p-2 rounded-full transition-all duration-300 hover:scale-110
                 ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/10'}`}
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
@@ -196,8 +202,8 @@ export default function Navbar() {
 
         {/* Mobile Navigation Menu */}
         <div
-          className={`md:hidden fixed top-0 right-0 bottom-0 w-[300px] bg-white shadow-2xl 
-            transform transition-transform duration-300 ease-in-out z-50
+          className={`md:hidden fixed top-0 right-0 bottom-0 w-[300px] bg-white/95 backdrop-blur-lg
+            shadow-2xl transform transition-all duration-500 ease-in-out z-50
             ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
           {/* Mobile Menu Header */}
@@ -205,7 +211,7 @@ export default function Navbar() {
             <span className="text-xl font-bold text-gray-800">Menu</span>
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="p-2 rounded-full hover:bg-gray-100"
+              className="p-2 rounded-full hover:bg-gray-100 transition-all duration-300 hover:scale-110"
             >
               <FaTimes className="text-xl text-gray-600" />
             </button>
@@ -221,14 +227,16 @@ export default function Navbar() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search for food..."
-                  className="w-full px-4 py-2 rounded-full bg-gray-100 
-                    focus:outline-none focus:ring-2 focus:ring-[--primary]"
+                  className="w-full px-4 py-2 rounded-full bg-gray-100/80 
+                    focus:outline-none focus:ring-2 focus:ring-[--primary]
+                    transition-all duration-300 hover:bg-gray-100"
                 />
                 <button 
                   type="submit"
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2
+                    transition-all duration-300 hover:scale-110"
                 >
-                  <FaSearch className="text-gray-400" />
+                  <FaSearch className="text-gray-400 hover:text-[--primary]" />
                 </button>
               </div>
             </form>
@@ -244,7 +252,7 @@ export default function Navbar() {
                   }}
                   className="block w-full text-left py-3 px-4 rounded-lg
                     text-gray-600 hover:text-[--primary] hover:bg-gray-50
-                    transition-colors duration-200"
+                    transition-all duration-300 hover:scale-105"
                 >
                   {link.name}
                 </button>
@@ -257,7 +265,7 @@ export default function Navbar() {
                 onClick={handleUserClick}
                 className="flex items-center gap-3 w-full py-3 px-4 rounded-lg
                   text-gray-600 hover:text-[--primary] hover:bg-gray-50
-                  transition-colors duration-200"
+                  transition-all duration-300 hover:scale-105"
               >
                 <FaUser />
                 <span>Profile</span>
@@ -269,11 +277,11 @@ export default function Navbar() {
         {/* Overlay */}
         {isMenuOpen && (
           <div
-            className="fixed inset-0 bg-black/50 md:hidden z-40"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm md:hidden z-40"
             onClick={() => setIsMenuOpen(false)}
           />
         )}
       </div>
     </nav>
   );
-} 
+}
