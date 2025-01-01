@@ -50,29 +50,29 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-gray-300">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Section */}
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-white">FoodOrder</h2>
-            <p className="text-gray-400">
+          <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-white bg-gradient-to-r from-[--primary] to-pink-500 bg-clip-text text-transparent">FoodOrder</h2>
+            <p className="text-gray-400 leading-relaxed">
               Delivering happiness to your doorstep. Experience the finest cuisine from top restaurants.
             </p>
             {/* Social Links */}
-            <div className="flex space-x-4 pt-2">
+            <div className="flex space-x-6 pt-2">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
                   <a
                     key={social.name}
                     href={social.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
+                    className="text-gray-400 hover:text-[--primary] transform hover:scale-110 transition-all duration-300"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Icon className="text-xl" />
+                    <Icon className="text-2xl" />
                   </a>
                 );
               })}
@@ -81,18 +81,18 @@ export default function Footer() {
 
           {/* Quick Links Sections */}
           {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category} className="space-y-4">
-              <h3 className="text-lg font-semibold text-white capitalize">
+            <div key={category} className="space-y-6">
+              <h3 className="text-xl font-semibold text-white capitalize after:content-[''] after:block after:w-12 after:h-1 after:bg-[--primary] after:mt-2">
                 {category}
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-300"
+                      className="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center"
                     >
-                      {link.name}
+                      <span className="hover:underline decoration-[--primary]">{link.name}</span>
                     </Link>
                   </li>
                 ))}
@@ -101,25 +101,25 @@ export default function Footer() {
           ))}
 
           {/* Newsletter Section */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Newsletter</h3>
-            <p className="text-gray-400">
+          <div className="space-y-6">
+            <h3 className="text-xl font-semibold text-white after:content-[''] after:block after:w-12 after:h-1 after:bg-[--primary] after:mt-2">Newsletter</h3>
+            <p className="text-gray-400 leading-relaxed">
               Subscribe to our newsletter for exclusive offers and updates.
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="space-y-2">
+            <form onSubmit={handleNewsletterSubmit} className="space-y-3">
               <input
                 type="email"
                 name="email"
                 placeholder="Enter your email"
                 required
-                className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 
+                className="w-full px-4 py-3 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700 
                   text-white placeholder-gray-400 focus:outline-none focus:ring-2 
-                  focus:ring-[--primary] focus:border-transparent"
+                  focus:ring-[--primary] focus:border-transparent transition-all duration-300"
               />
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-[--primary] hover:bg-[--primary-dark] 
-                  text-white rounded-lg transition-colors duration-300"
+                className="w-full px-6 py-3 bg-gradient-to-r from-[--primary] to-pink-500 hover:from-pink-500 hover:to-[--primary]
+                  text-white rounded-lg transition-all duration-300 transform hover:scale-105 font-semibold"
               >
                 Subscribe
               </button>
@@ -128,27 +128,29 @@ export default function Footer() {
         </div>
 
         {/* App Badges */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
+        <div className="mt-16 pt-8 border-t border-gray-800">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <div className="flex items-center space-x-4">
-              <a href="#" className="hover:opacity-80 transition-opacity">
+            <div className="flex items-center space-x-6">
+              <a href="#" className="transform hover:scale-105 transition-transform duration-300">
                 <Image
                   src="/app-store-badge.png"
                   alt="Download on App Store"
                   width={140}
                   height={42}
+                  className="brightness-110"
                 />
               </a>
-              <a href="#" className="hover:opacity-80 transition-opacity">
+              <a href="#" className="transform hover:scale-105 transition-transform duration-300">
                 <Image
                   src="/google-play-badge.png"
                   alt="Get it on Google Play"
                   width={140}
                   height={42}
+                  className="brightness-110"
                 />
               </a>
             </div>
-            <div className="mt-4 sm:mt-0 text-center sm:text-right">
+            <div className="mt-6 sm:mt-0 text-center sm:text-right">
               <p className="text-gray-400">
                 © {currentYear || ''} FoodOrder. All rights reserved.
               </p>
@@ -158,20 +160,20 @@ export default function Footer() {
       </div>
 
       {/* Bottom Banner */}
-      <div className="bg-gray-950 py-4">
+      <div className="bg-gray-950/80 backdrop-blur-sm py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center text-sm text-gray-400">
-            <div className="flex space-x-4">
-              <Link href="#" className="hover:text-white transition-colors">Terms</Link>
-              <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
-              <Link href="#" className="hover:text-white transition-colors">Cookies</Link>
+            <div className="flex space-x-6">
+              <Link href="#" className="hover:text-white hover:underline decoration-[--primary] transition-colors">Terms</Link>
+              <Link href="#" className="hover:text-white hover:underline decoration-[--primary] transition-colors">Privacy</Link>
+              <Link href="#" className="hover:text-white hover:underline decoration-[--primary] transition-colors">Cookies</Link>
             </div>
             <div className="mt-4 sm:mt-0">
-              Made with ❤️ by rolandaayo
+              Made with <span className="text-red-500">❤️</span> by <span className="text-[--primary] font-semibold">rolandaayo</span>
             </div>
           </div>
         </div>
       </div>
     </footer>
   );
-} 
+}
