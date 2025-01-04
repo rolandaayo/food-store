@@ -1,7 +1,7 @@
 <div align="center">
-  <h2 align="center">Ecommerce Store</h2>
+  <h2 align="center">Food Order</h2>
 
-  This is a fully responsive and functional ecommerce website, Responsive for all devices. <br/> Built using Next.js and TailwindCSS.
+  This is a fully responsive and functional food ordering web-app, Responsive for all devices. <br/> Built using Next.js and TailwindCSS.
 
   <a href="/"><strong>➥ Live Demo Not Available For Now</strong></a>
 
