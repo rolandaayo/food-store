@@ -1,9 +1,17 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 
 export default function YourComponent() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <YourComponentContent />
+    </Suspense>
+  );
+}
+
+function YourComponentContent() {
   const searchParams = useSearchParams()
   const [isClient, setIsClient] = useState(false)
   
@@ -26,4 +34,4 @@ export default function YourComponent() {
       )}
     </div>
   )
-} 
+}

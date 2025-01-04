@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import MenuItem from './MenuItem';
 import { menuItems, categories, dietaryTags } from '@/data/menuData';
@@ -8,6 +8,14 @@ import { menuItems, categories, dietaryTags } from '@/data/menuData';
 const PREFERENCES_STORAGE_KEY = 'foodOrder_preferences';
 
 export default function MenuList() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MenuListContent />
+    </Suspense>
+  );
+}
+
+function MenuListContent() {
   const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -134,4 +142,4 @@ export default function MenuList() {
       </div>
     </section>
   );
-} 
+}
