@@ -3,7 +3,7 @@
 
   This is a fully responsive and functional food ordering web-app, Responsive for all devices. <br/> Built using Next.js and TailwindCSS.
 
-  <a href="https://food-order-w3b.vercel.app"><strong>➥ Live Demo Not Available For Now</strong></a>
+  <a href="https://food-order-w3b.vercel.app"><strong>➥ Live Demo</strong></a>
 
 </div>
 
